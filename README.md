@@ -36,6 +36,11 @@ O(n + u log u) для перемешанного, где `u` — число ра
 Нужен Python 3.9+.
 
 ```bash
-python -m pip install -r requirements.txt
+python -m pip install .
 python -m unittest discover -s tests -v
 ```
+
+При push и pull request в `main` GitHub Actions запускает тесты на Python
+3.9 и 3.12. Тег версии, например `v0.1.0`, после успешных тестов запускает
+сборку wheel и исходного архива и публикует их в GitHub Release. Версия тега
+должна совпадать с `version` в `pyproject.toml`.
